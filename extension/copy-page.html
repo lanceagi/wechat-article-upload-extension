@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公众号 HTML 复制页 · v1.0.0</title>
+<style>
+  :root{
+    --green:#07c160; --green-dark:#06ad56; --ink:#1f2328; --muted:#6b7280;
+    --line:#e6e8eb; --bg:#f4f5f7; --card:#fff; --warn:#b45309; --err:#b91c1c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font:14px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .top{background:#fff;border-bottom:1px solid var(--line);padding:18px 0 16px;margin-bottom:22px}
+  .brand{font-size:20px;font-weight:750;letter-spacing:.2px}
+  .ver{font-size:11px;font-weight:700;color:var(--green);background:#e9fbf1;border-radius:999px;padding:2px 7px;vertical-align:2px;margin-left:6px}
+  .sub{color:var(--muted);font-size:13px;margin-top:3px}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:20px;align-items:start}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+  h2{font-size:14px;margin:0 0 14px;font-weight:700}
+  .muted{color:#9aa3ad;font-weight:400;font-size:11px}
+  .field{display:block;margin-bottom:10px}
+  .field > span{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
+  input[type=file]{width:100%;font-size:12px;color:#4b5563}
+  input[type=file]::file-selector-button{margin-right:8px;border:1px solid #d9dde2;background:#fff;color:#374151;
+    border-radius:8px;padding:7px 11px;font:600 12px/1 inherit;cursor:pointer}
+  input[type=file]::file-selector-button:hover{background:#f7f8fa}
+  select,textarea{width:100%;border:1px solid #dfe2e6;border-radius:9px;background:#fff;color:var(--ink);
+    font:12px/1.5 inherit;padding:8px 10px;outline:none}
+  select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(7,193,96,.12)}
+  textarea{min-height:110px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .hint{font-size:11px;color:#9aa3ad;line-height:1.55;margin-top:5px}
+  .divider{display:flex;align-items:center;gap:10px;color:#c0c5cb;font-size:11px;margin:12px 0}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:#eef0f2}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .btn{border:0;border-radius:9px;padding:9px 14px;font:600 12px/1.2 inherit;cursor:pointer;transition:background .15s}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn.primary{background:var(--green);color:#fff}
+  .btn.primary:not(:disabled):hover{background:var(--green-dark)}
+  .btn:not(.primary){background:#fff;color:#374151;border:1px solid #d9dde2}
+  .btn:not(.primary):not(:disabled):hover{background:#f7f8fa}
+  .status{min-height:20px;margin-top:10px;font-size:12px;color:var(--muted);word-break:break-word}
+  .status.ok{color:#047857}.status.err{color:var(--err)}.status.warn{color:var(--warn)}
+  .report{margin-top:6px;font-size:12px;line-height:1.55}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
+  .chip{background:#f3f4f6;color:#4b5563;border-radius:999px;padding:2px 8px;font-size:11px}
+  .warn-item{margin:5px 0;padding:6px 9px;background:#fffbeb;border-left:2px solid #f59e0b;border-radius:4px;color:#92400e;font-size:11.5px}
+  .warn-item.bad{background:#fef2f2;border-left-color:#ef4444;color:#991b1b}
+  .okline{color:#047857;font-size:11.5px}
+  .preview-card{position:sticky;top:18px}
+  .phone{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  #preview{display:block;width:100%;height:620px;border:0;background:#fff}
+  .foot{padding:22px 24px 40px;color:#9aa3ad;font-size:11px;text-align:center}
+  @media (max-width:920px){
+    .grid{grid-template-columns:1fr}
+    .preview-card{position:static}
+    #preview{height:420px}
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">公众号 HTML 复制页<span class="ver">v1.0.0</span></div>
+    <div class="sub">把 AI 写好的 HTML 清洗成微信可接受的内联样式，点「复制」，到公众号编辑器里 Cmd+V。</div>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <section class="card">
+    <h2>1. 选择来源</h2>
+
+    <label class="field">
+      <span>单个 HTML 文件（默认）</span>
+      <input type="file" id="single" accept=".html,.htm,text/html">
+    </label>
+
+    <div class="divider">或</div>
+
+    <label class="field">
+      <span>文章文件夹（含 HTML 与图片）</span>
+      <input type="file" id="folder" webkitdirectory multiple>
+    </label>
+    <select id="htmlList" hidden></select>
+    <div class="hint" id="folderHint">选文件夹后自动列出 .html；layout / 排版优先，预览稿排最后。</div>
+
+    <div class="divider">或</div>
+
+    <label class="field">
+      <span>粘贴 HTML 源码</span>
+      <textarea id="paste" placeholder="&lt;section style=&quot;...&quot;&gt;...&lt;/section&gt;"></textarea>
+    </label>
+
+    <div class="actions">
+      <button id="parse" class="btn primary">解析并预览</button>
+      <button id="copy" class="btn" disabled>复制到公众号</button>
+      <button id="download" class="btn" disabled>下载清洗后的 HTML</button>
+    </div>
+
+    <div id="status" class="status"></div>
+    <div id="report" class="report"></div>
+  </section>
+
+  <section class="card preview-card">
+    <h2>2. 预览 <span class="muted">（微信正文宽度）</span></h2>
+    <div class="phone"><iframe id="preview" sandbox="allow-same-origin" title="预览"></iframe></div>
+    <div class="hint">本地图片只在预览里显示。复制到公众号前会换成占位框，需要在编辑器里手动上传图片。</div>
+  </section>
+</main>
+
+<footer class="wrap foot">只做本地清洗，不上传、不发布。v1.0.0</footer>
+
+<script src="core.js"></script>
+<script src="inliner.js"></script>
+<script src="copy-page.js"></script>
+</body>
+</html>

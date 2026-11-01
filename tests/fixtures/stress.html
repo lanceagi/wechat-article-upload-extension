@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>压力稿：flex / grid / 绝对定位 / 伪元素 / 媒体查询</title>
+<style>
+:root{--brand:#07c160}
+body{margin:0;background:#ffffff;color:#222222;font-family:-apple-system,"PingFang SC",sans-serif}
+.wrap{position:relative;padding:16px}
+.row{display:flex;gap:12px;padding:12px}
+.col{flex:1;padding:12px;background:#f5f7fa;border-radius:8px;font-size:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.badge{position:absolute;top:8px;right:8px;background:var(--brand);color:#ffffff;font-size:12px;padding:2px 8px}
+.card{transform:translateY(-4px);box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:all 0.2s ease}
+.tip::before{content:"★";color:#f59e0b}
+@media (max-width:600px){.row{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>压力测试稿：微信不支持的布局都在这</h1>
+  <span class="badge">NEW</span>
+  <div class="row">
+    <div class="col">左栏</div>
+    <div class="col">右栏</div>
+  </div>
+  <div class="grid">
+    <div class="col">格一</div>
+    <div class="col">格二</div>
+  </div>
+  <div class="card" style="padding:12px;">悬浮卡片（内联 + class 混合样式）</div>
+  <p class="tip">提示行：伪元素前缀会丢</p>
+  <img src="chart.png" alt="示例图">
+  <a href="https://example.com">外部链接</a>
+</div>
+</body>
+</html>

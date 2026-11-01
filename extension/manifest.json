@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "公众号 HTML 导入器",
+  "version": "1.0.0",
+  "description": "把本地 HTML 内联化、清洗后导入微信公众号编辑器，尽量保留版式。只插入，不保存、不群发。",
+  "minimum_chrome_version": "102",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "host_permissions": [
+    "https://mp.weixin.qq.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mp.weixin.qq.com/*"
+      ],
+      "js": [
+        "inliner.js",
+        "core.js",
+        "panel-css.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

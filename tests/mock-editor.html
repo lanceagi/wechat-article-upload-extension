@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模拟公众号编辑器</title>
+<style>
+  body{margin:0;padding:24px;background:#f5f6f7;color:#1f2328;
+    font:14px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+  h1{font-size:18px;margin:0 0 4px}
+  .sub{color:#6b7280;font-size:13px;margin-bottom:14px}
+  .bar{display:flex;gap:8px;margin-bottom:10px}
+  button{border:1px solid #d9dde2;background:#fff;border-radius:8px;padding:7px 12px;font:600 12px/1 inherit;cursor:pointer}
+  button:hover{background:#f7f8fa}
+  #log{background:#0f172a;color:#d1fae5;border-radius:8px;padding:10px 12px;font:11px/1.6 ui-monospace,Menlo,monospace;min-height:40px;white-space:pre-wrap}
+  #mount{margin-top:14px}
+</style>
+</head>
+<body>
+<h1>模拟公众号编辑器</h1>
+<div class="sub">验证 core.js 的编辑器定位与注入，不连接微信、不联网。</div>
+<div class="bar">
+  <button id="find">检测编辑器</button>
+  <button id="append">追加测试</button>
+  <button id="replace">替换测试</button>
+</div>
+<pre id="log"></pre>
+<div id="mount"></div>
+<script src="../extension/core.js"></script>
+<script src="mock-editor.js"></script>
+</body>
+</html>

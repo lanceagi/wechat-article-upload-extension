@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>敌对编辑器模拟（execCommand 被剥样式）</title>
+<style>
+  body{margin:0;padding:24px;background:#f5f6f7;color:#1f2328;
+    font:14px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+  h1{font-size:18px;margin:0 0 4px}
+  .sub{color:#6b7280;font-size:13px;margin-bottom:14px}
+</style>
+</head>
+<body>
+<h1>敌对编辑器模拟</h1>
+<div class="sub">execCommand('insertHTML') 的内容会被剥掉 style / data-* 属性——模拟微信编辑器的清洗行为，验证插入级联会自动改用直写。</div>
+<div id="mount"></div>
+<script src="../extension/core.js"></script>
+<script src="hostile-mock.js"></script>
+</body>
+</html>

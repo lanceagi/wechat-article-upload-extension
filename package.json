@@ -1,0 +1,12 @@
+{
+  "name": "wechat-article-upload-extension",
+  "version": "1.0.0",
+  "description": "把本地 HTML 内联化后导入微信公众号编辑器的 Chrome 扩展 (只插入, 不保存, 不群发)",
+  "license": "MIT",
+  "scripts": {
+    "test": "node tests/run-tests.js"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.5.0"
+  }
+}

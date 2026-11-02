@@ -12,7 +12,7 @@ No sign-up · No paywall · Runs 100% locally · Insert-only: never saves, never
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Chrome MV3](https://img.shields.io/badge/Chrome-MV3-07c160.svg)
-![Tests](https://img.shields.io/badge/tests-14%20passing-brightgreen.svg)
+[![tests](https://github.com/lanceagi/wechat-article-upload-extension/actions/workflows/test.yml/badge.svg)](https://github.com/lanceagi/wechat-article-upload-extension/actions/workflows/test.yml)
 ![No telemetry](https://img.shields.io/badge/privacy-no%20telemetry-blue.svg)
 
 ![面板演示](docs/panel.png)

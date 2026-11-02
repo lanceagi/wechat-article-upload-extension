@@ -92,8 +92,8 @@ This extension does the dirty work in between, entirely in your browser -- see t
   Images upload themselves: local and base64 files go serially to your own material library; failures become placeholders with the reason attached.
 - 🛡️ 插入后有校验: 编辑器把样式剥了就自动换一条路重试, 还不行就保住文字, 附一份诊断.
   Verified after insert: if the editor strips the styles, it retries another way; worst case the text survives, with a diagnosis attached.
-- 🧩 不装扩展也能用: 浏览器打开 `extension/copy-page.html`, 解析, 预览, 复制, 自己去编辑器里粘贴.
-  Zero-install option: open `extension/copy-page.html` in a browser, parse, preview, copy, and paste into the editor yourself.
+- 🧩 不装扩展也能用: 浏览器打开 `copy-page.html`, 解析, 预览, 复制, 自己去编辑器里粘贴.
+  Zero-install option: open `copy-page.html` in a browser, parse, preview, copy, and paste into the editor yourself.
 
 <a id="quick-start"></a>
 
@@ -104,20 +104,26 @@ This extension does the dirty work in between, entirely in your browser -- see t
 前置: Chrome / Edge / Brave 等 Chromium 浏览器 (Chrome 102+), 以及一个能登录的公众号账号.
 Prerequisites: a Chromium browser (Chrome 102+, Edge, Brave) and your own WeChat MP account.
 
-1. 下载或克隆本仓库 / Download or clone this repo
+1. 从 [最新 Release](https://github.com/lanceagi/wechat-article-upload-extension/releases/latest) 下载 zip 并解压 / Download the zip from the [latest release](https://github.com/lanceagi/wechat-article-upload-extension/releases/latest) and unzip it
 2. 打开 `chrome://extensions/` (Edge 为 `edge://extensions/`) / Open it
 3. 打开右上角 "开发者模式" / Turn on **Developer mode**
-4. 点 "加载已解压的扩展程序", 选择仓库里的 `extension/` 文件夹 / **Load unpacked**, pick the `extension/` folder
+4. 点 "加载已解压的扩展程序", 选择解压出来的那个文件夹 / **Load unpacked**, pick the unzipped folder
 5. 打开 [公众号后台](https://mp.weixin.qq.com/) 新建图文, 右下角出现绿色 `HTML` 按钮: 选文件 -> "解析并预览" -> "插入编辑器"
    Open the [MP backend](https://mp.weixin.qq.com/), create a new article, and a green `HTML` button appears bottom-right: pick a file -> **parse & preview** -> **insert**.
+
+想改代码或跑测试, 克隆本仓库, 第 4 步选仓库里的 `extension/` 文件夹即可.
+To hack on it or run tests, clone the repo and pick its `extension/` folder in step 4 instead.
 
 装扩展不需要 Node 和 npm, 那是给跑测试的开发者用的.
 Installing the extension needs no Node or npm -- those are for developers running the test suite.
 
+装新版: 下载新 zip 解压, 覆盖原来那个文件夹, 回扩展页点刷新即可.
+To update: unzip the new release over the same folder, then hit refresh on the extensions page.
+
 ### 方式 B · 零安装复制页 / Option B: zero-install copy page
 
-不想装扩展? 用浏览器直接打开 `extension/copy-page.html`: 选文件或粘贴源码, 解析, 复制, 到编辑器里 `Cmd/Ctrl+V`. 限制: 复制页不能上传本地图片, 图片会替换为占位框.
-No install at all? Open `extension/copy-page.html` in a browser: pick or paste HTML, parse, copy, then `Cmd/Ctrl+V` in the editor. Limitation: the copy page cannot upload local images; they become placeholders.
+不想装扩展? 用浏览器直接打开 `copy-page.html` (在 Release 解压出的文件夹里, 或仓库的 `extension/` 下): 选文件或粘贴源码, 解析, 复制, 到编辑器里 `Cmd/Ctrl+V`. 限制: 复制页不能上传本地图片, 图片会替换为占位框.
+No install at all? Open `copy-page.html` in a browser (it ships in the release zip, or under `extension/` in the repo): pick or paste HTML, parse, copy, then `Cmd/Ctrl+V` in the editor. Limitation: the copy page cannot upload local images; they become placeholders.
 
 <a id="prompting"></a>
 

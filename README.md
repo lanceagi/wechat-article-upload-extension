@@ -76,7 +76,7 @@ This extension does the dirty work in between, entirely in your browser -- see t
 | 费用 · Cost | 常见付费墙 · common paywall | 永久免费 · free, MIT |
 | 版式上限 · Layout ceiling | 模板库 · template library | 你和 AI 写的 CSS · whatever CSS you write |
 | 草稿去向 · Drafts | 存平台服务器 · vendor server | 留在本机 · stays local |
-| 代码 · Code | 闭源 · closed | 4 个 JS 文件, 无构建 · 4 JS files, no build |
+| 代码 · Code | 闭源 · closed | 5 个 JS 文件, 无构建 · 5 JS files, no build |
 
 <a id="features"></a>
 
